@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Upload Gallery</title>
+  <link rel="stylesheet" href="/multer.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Upload Images to Gallery</h1>
+
+    <!-- Image Upload Form -->
+    <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+      <input type="file" name="image" accept="image/*" required>
+      <button type="submit">Upload Image</button>
+    </form>
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+      <% files.forEach(function(file) { %>
+        <div class="gallery-item">
+          <img src="/uploads/<%= file %>" alt="Image">
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>
